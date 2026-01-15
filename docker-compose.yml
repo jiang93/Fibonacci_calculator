@@ -1,12 +1,12 @@
 services:
   client:
     image: "huiying530/fib_calculator_client"
-    mem_limit: 128m
+    mem_limit: 256m
     hostname: client
 
   express:
     image: "huiying530/fib_calculator_server"
-    mem_limit: 128m
+    mem_limit: 256m
     hostname: express
     environment:
       - REDIS_HOST=$REDIS_HOST
@@ -19,13 +19,13 @@ services:
 
   worker:
     image: "huiying530/fib_calculator_worker"
-    mem_limit: 128m
+    mem_limit: 256m
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
     image: "huiying530/fib_calculator_nginx"
-    mem_limit: 128m
+    mem_limit: 256m
     ports:
       - "3002:80"
