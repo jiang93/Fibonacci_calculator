@@ -1,0 +1,13 @@
+# base image 
+FROM node:20-alpine
+
+# make fir, copy package file and install dependencies
+WORKDIR "/fib_calculator"
+COPY package.json .
+RUN npm install
+
+# copy all files
+COPY . .
+
+# default startup command
+CMD ["npm", "run", "start"]
