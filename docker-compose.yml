@@ -27,3 +27,5 @@ services:
   nginx:
     image: "huiying530/fib_calculator_nginx"
     mem_limit: 256m
+    ports:
+      - '80:80'
