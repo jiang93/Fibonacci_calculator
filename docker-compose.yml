@@ -4,7 +4,7 @@ services:
     mem_limit: 256m
     hostname: client
 
-  server:
+  express:
     image: "huiying530/fib_calculator_server"
     mem_limit: 512m
     hostname: express
