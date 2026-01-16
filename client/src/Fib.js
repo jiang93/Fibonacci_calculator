@@ -30,20 +30,20 @@ class Fib extends Component {
 
   try 
   {
-      await axios.post("/api/values", {
+      await axios.post('/api/values', {
         index: this.state.index,
       });
-      this.setState({ index: "" });
+      this.setState({ index: '' });
 
       this.fetchValues();
       this.fetchIndexes();
   } catch (err) 
     {
-      if (err.response && err.response.status === 422) {
+      if (err.response && err.response.status == 422) {
         alert(err.response.data);
       } 
       else {
-        alert("Something went wrong!");
+        alert('Something went wrong!');
       }
     }
   };
