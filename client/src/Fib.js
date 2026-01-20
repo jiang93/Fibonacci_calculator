@@ -28,30 +28,16 @@ class Fib extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
 
-  try 
-  {
-      await axios.post('/api/values', {
-        index: this.state.index,
-      });
-      this.setState({ index: '' });
-
-      this.fetchValues();
-      this.fetchIndexes();
-  } catch (err) 
-    {
-      if (err.response && err.response.status === 422) {
-        alert(err.response.data);
-      } 
-      else {
-        alert('Something went wrong!');
-      }
-    }
+    await axios.post('/api/values', {
+      index: this.state.index,
+    });
+    this.setState({ index: '' });
+    
+    this.fetchIndexes();
+    this.fetchValues();
   };
 
   renderSeenIndexes() {
-    if (!Array.isArray(this.state.seenIndexes)) {
-      return '';
-    }
     return this.state.seenIndexes.map(({ number }) => number).join(', ');
   }
 
@@ -61,7 +47,7 @@ class Fib extends Component {
     for (let key in this.state.values) {
       entries.push(
         <div key={key}>
-          For index {key} | value calculated {this.state.values[key]}
+          For index {key} | calcualted value is {this.state.values[key]}
         </div>
       );
     }
