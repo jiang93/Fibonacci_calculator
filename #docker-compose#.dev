@@ -35,7 +35,7 @@ services:
       - /fib_calculator/node_modules
       - ./client:/fib_calculator
     environment:
-      - WDS_SOCKER_PORT=0
+      - WDS_SOCKET_PORT=0
   worker:
     build:
       dockerfile: Dockerfile.dev
